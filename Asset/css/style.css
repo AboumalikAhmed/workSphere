@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../image/chris-appano-_pK-fP_SuL4-unsplash.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+}
+
+.left_aside {
+  height: calc(100vh - 80px);
+  width: 400px;
+  /* background-color: red; */
+}
+
+.title_left_side {
+  text-align: center;
+  padding: 20px;
+}
+.add {
+  height: 80px;
+  display: grid;
+  place-content: center;
+}
+
+#addWorker {
+  outline: none;
+  background-color: rgb(63, 250, 63);
+  border: none;
+  width: 200px;
+  display: block;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 200;
+  color: #fff;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+}
+
+.container_room {
+  width: calc(100vw - 400px);
+  height: calc(100vh - 80px);
+  display: grid;
+  place-content: center;
+  /* background-color: red; */
+}
+
+.room {
+  width: 1110px;
+  height: 630px;
+  background-image: url("../image/plan-69159a65c5684763515973.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(13, 85px);
+  grid-template-rows: repeat(6, auto);
+
+}
+
+
+.room p{
+  /* background-color: red; */
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+}
+
+
+
+
+.r1 {
+  background-color: rgba(255, 255, 0, 0.349);
+  grid-column: 1/6;
+  grid-row: 1/3;
+  border: 8px solid;
+}
+
+.r2 {
+  background-color: rgba(0, 255, 255, 0.286);
+  grid-column: 8/11;
+  grid-row: 1/3;
+  border: 5px solid;
+}
+
+.r3 {
+  background-color: rgba(255, 166, 0, 0.43);
+  grid-column: 11/14;
+  grid-row: 1/3;
+  border: 5px solid;
+}
+
+.r4 {
+  background-color: rgba(73, 229, 17, 0.362);
+  grid-column: 1/6;
+  grid-row: 3/7;
+  border: 5px solid;
+}
+
+.r5 {
+  background-color: rgba(58, 212, 192, 0.422);
+  grid-column: 8/11;
+  grid-row: 5/7;
+}
+.r6 {
+  background-color: rgba(184, 10, 135, 0.46);
+  grid-column: 11/14;
+  grid-row: 5/7;
+  border: 5px solid;
+}
+
+/* logo */
+.logo {
+  height: 100%;
+
+  & h1 {
+    line-height: 80px;
+    /* background-color: red; */
+    transform: translateX(800px);
+    width: 300px;
+    text-align: center;
+  }
+}
+
+.worker_container {
+  padding: 10px;
+  width: 350px;
+  margin: 0 auto;
+  height: 450px;
+  /* background-color: red; */
+  overflow-y: scroll;
+}
+
+.worker_container::-webkit-scrollbar {
+  display: none;
+  cursor: move;
+}
+/* test */
+
+.TEST {
+  background-color: orange;
+  width: 100%;
+ 
+  line-height: 80px;
+  padding: 5px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+
+.btnRoom{
+  /* background-color: red; */
+  text-align: center;
+
+  & button{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: rgb(94, 164, 245);
+    color: #fff;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+}
+
+.ROOM{
+  position: relative;
+}
+
+.content_worker{
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  background-color: #fff;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+}
