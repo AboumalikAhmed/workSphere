@@ -9,12 +9,24 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
-     
   </head>
   <body>
     <main>
       <aside class="left">
         <h1 class="title">Unassigned Staff</h1>
+        <div class="mode">
+          <p>switch mode </p>
+           <em class="fas fa-toggle-off"></em>
+        </div>
+        <div class="search_worker">
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="search worker"
+          />
+          <em class="fab fa-searchengin"></em>
+        </div>
         <div class="add_Button">
           <button id="add_new_worker">add_new_worker</button>
         </div>
@@ -25,18 +37,18 @@
           <div class="Salle_de_conference" data-access="Salle de conference">
             <div class="room_header">
               <p class="room_title">Salle de conférence</p>
-              <p id="counference_counter">0 /<span>10</span></p>
+              <button id="add_to_conference" class="add_to_room">+</button>
+              <p id="counference_counter"><span></span></p>
             </div>
-            <button id="add_to_conference" class="add_to_room">+</button>
             <div class="worker_room_container"></div>
           </div>
 
           <div class="Salle_des_serveurs" data-access="Salle des serveurs">
             <div class="room_header">
               <p class="room_title">Salle des serveurs</p>
+              <button id="add_to_serveurs" class="add_to_room">+</button>
               <p id="serveurs_room">0 /<span>10</span></p>
             </div>
-            <button id="add_to_serveurs" class="add_to_room">+</button>
             <div class="alert"></div>
             <div class="worker_room_container"></div>
           </div>
@@ -44,9 +56,9 @@
           <div class="Salle_de_securite" data-access="Salle de securite">
             <div class="room_header">
               <p class="room_title">Salle de sécurité</p>
+              <button id="add_to_securite" class="add_to_room">+</button>
               <p id="securite_counter">0 /<span>10</span></p>
             </div>
-            <button id="add_to_securite" class="add_to_room">+</button>
 
             <div class="alert"></div>
             <div class="worker_room_container"></div>
@@ -55,9 +67,9 @@
           <div class="Reception" data-access="Reception">
             <div class="room_header">
               <p class="room_title">Réception</p>
+              <button id="add_to_Reception" class="add_to_room">+</button>
               <p id="Reception_counter"><span></span></p>
             </div>
-            <button id="add_to_Reception" class="add_to_room">+</button>
             <div class="alert"></div>
             <div class="worker_room_container"></div>
           </div>
@@ -65,18 +77,18 @@
           <div class="Salle_du_personnel" data-access="Salle du personnel">
             <div class="room_header">
               <p class="room_title">Salle du personnel</p>
+              <button id="add_to_personnel" class="add_to_room">+</button>
               <p id="personnel_counter">0 /<span>10</span></p>
             </div>
-            <button id="add_to_personnel" class="add_to_room">+</button>
             <div class="worker_room_container"></div>
           </div>
 
           <div class="Salle_darchives">
             <div class="room_header">
               <p class="room_title">Salle d’archives</p>
-              <p id="darchives_counter">0 /<span>10</span></p>
+              <button id="add_to_darchives" class="add_to_room">+</button>
+              <p id="darchives_counter"><span></span></p>
             </div>
-            <button id="add_to_darchives" class="add_to_room">+</button>
 
             <div class="alert"></div>
             <div class="worker_room_container"></div>

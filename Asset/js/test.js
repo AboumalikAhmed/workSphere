@@ -719,3 +719,23 @@ function init() {
 
 // Start the app
 document.addEventListener("DOMContentLoaded", init);
+const modeBtn = document.querySelector(".fa-toggle-off");
+const plan = document.querySelector(".plan");
+
+const leftAside = document.querySelector(".left");
+const workerCard = leftAside.querySelector(".new_worker_container ");
+
+console.log(workerCard);
+
+modeBtn.addEventListener("click", (e) => {
+  plan.classList.toggle("dark_plan");
+  document.body.classList.toggle("dark");
+     
+  Array.from(workerCard.children).forEach(card=>{
+    console.log(card);
+    card.classList.toggle("dark_card")
+    
+  })
+  
+  
+});
