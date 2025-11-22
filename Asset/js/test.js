@@ -45,7 +45,7 @@ const ROLE_ACCESS = {
 // ============================================
 let workers = [];
 let assignments = {};
-let editingWorkerId = null; // Tracks if we are adding or editing
+let editingWorkerId = null;
 
 // Utility: XSS Protection
 const safe = (str) => {
@@ -151,7 +151,9 @@ function assignWorkerToRoom(workerId, roomName) {
 
 function removeWorkerFromRoomData(workerId, roomName) {
   if (assignments[roomName]) {
-    assignments[roomName] = assignments[roomName].filter((id) => id !== workerId);
+    assignments[roomName] = assignments[roomName].filter(
+      (id) => id !== workerId
+    );
     saveData();
   }
 }
@@ -220,10 +222,14 @@ function createWorkerCardHTML(worker) {
         </div>
         <div class="card-actions" style="display:flex; justify-content:center; gap:10px; padding:10px;">
             <div class="editWorker" style="cursor:pointer; color:blue;">
-              <i class="fas fa-pen" data-action="edit" data-id="${worker.id}"></i>
+              <i class="fas fa-pen" data-action="edit" data-id="${
+                worker.id
+              }"></i>
             </div>
             <div class="deleteWorker" style="cursor:pointer; color:red;">
-              <i class="fas fa-trash-can" data-action="delete" data-id="${worker.id}"></i>
+              <i class="fas fa-trash-can" data-action="delete" data-id="${
+                worker.id
+              }"></i>
             </div>
         </div>
       </div>
@@ -399,13 +405,17 @@ function showWorkerDetail(id) {
   const expList = (worker.experiences || [])
     .map(
       (e) =>
-        `<li>${safe(e.company)} - ${safe(e.position)} <small>(${e.startDate} au ${e.endDate})</small></li>`
+        `<li>${safe(e.company)} - ${safe(e.position)} <small>(${
+          e.startDate
+        } au ${e.endDate})</small></li>`
     )
     .join("");
 
   const html = `
       <div class="worker_detail_popup">
-        <div class="popup_header"><h2>${safe(worker.fullname)}</h2><span id="close_detail">&times;</span></div>
+        <div class="popup_header"><h2>${safe(
+          worker.fullname
+        )}</h2><span id="close_detail">&times;</span></div>
         <div class="popup_content">
           <div style="text-align:center"><img src="${
             safe(worker.image_url) || CONFIG.defaultImage
@@ -549,6 +559,16 @@ function handleFormSubmit(e) {
   e.preventDefault();
   const form = e.target;
 
+  if (
+    form.fullname.value.trim() === "" ||
+    form.email.value.trim() === "" ||
+    form.phone.value.trim() === "" ||
+    form.role.value.trim() === ""
+  ) {
+    alert("input value is empty !!!");
+    return;
+  }
+
   // Validate Main Fields
   let valid = true;
   ["fullname", "email", "phone", "image_url"].forEach((name) => {
@@ -556,7 +576,7 @@ function handleFormSubmit(e) {
     const res = validateField(input);
     if (!res.isValid && input.value.trim() !== "") valid = false;
     // Force empty image to be valid if regex failed on empty string
-    if (name === "image_url" && input.value === "") valid = true; 
+    if (name === "image_url" && input.value === "") valid = true;
   });
 
   if (!validateAllExperiences()) valid = false;
