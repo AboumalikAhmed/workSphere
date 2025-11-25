@@ -15,8 +15,11 @@
       <aside class="left">
         <h1 class="title">Unassigned Staff</h1>
         <div class="mode">
-          <p>switch mode </p>
-           <em class="fas fa-toggle-off"></em>
+          <p>switch mode</p>
+          <input type="checkbox" name="mode" id="mode" />
+          <label for="mode">
+            <em id="class_mode" class="fas fa-toggle-off"></em>
+          </label>
         </div>
         <div class="search_worker">
           <input
@@ -28,7 +31,7 @@
           <em class="fab fa-searchengin"></em>
         </div>
         <div class="add_Button">
-          <button id="add_new_worker">add_new_worker</button>
+          <button id="add_new_worker">add worker</button>
         </div>
         <div class="new_worker_container"></div>
       </aside>
@@ -47,7 +50,7 @@
             <div class="room_header">
               <p class="room_title">Salle des serveurs</p>
               <button id="add_to_serveurs" class="add_to_room">+</button>
-              <p id="serveurs_room">0 /<span>10</span></p>
+              <p id="serveurs_room"><span></span></p>
             </div>
             <div class="alert"></div>
             <div class="worker_room_container"></div>
@@ -57,7 +60,7 @@
             <div class="room_header">
               <p class="room_title">Salle de sécurité</p>
               <button id="add_to_securite" class="add_to_room">+</button>
-              <p id="securite_counter">0 /<span>10</span></p>
+              <p id="securite_counter"><span></span></p>
             </div>
 
             <div class="alert"></div>
@@ -78,7 +81,7 @@
             <div class="room_header">
               <p class="room_title">Salle du personnel</p>
               <button id="add_to_personnel" class="add_to_room">+</button>
-              <p id="personnel_counter">0 /<span>10</span></p>
+              <p id="personnel_counter"><span></span></p>
             </div>
             <div class="worker_room_container"></div>
           </div>
@@ -166,6 +169,7 @@
     <!-- end of form -->
 
     <!-- <script src="./Asset/js/main.js"></script> -->
+     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="./Asset/js/test.js"></script>
   </body>
 </html>

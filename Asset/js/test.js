@@ -267,7 +267,10 @@ function renderWorkerInRoom(worker, roomName) {
       <img src="${safe(worker.image_url) || CONFIG.defaultImage}" alt="${safe(
     worker.fullname
   )}" onerror="this.src='${CONFIG.defaultImage}'">
-      <span>${safe(worker.fullname)}</span>
+     <div>
+      <p>${safe(worker.fullname)}</p>
+       <p>${safe(worker.role)}</p>
+     </div>
       <button class="remove_worker_btn" style="color:red; border:none; background:none; font-weight:bold; cursor:pointer;">&times;</button>
     `;
 
@@ -719,23 +722,70 @@ function init() {
 
 // Start the app
 document.addEventListener("DOMContentLoaded", init);
-const modeBtn = document.querySelector(".fa-toggle-off");
+const modeBtn = document.querySelector("#mode");
 const plan = document.querySelector(".plan");
 
 const leftAside = document.querySelector(".left");
 const workerCard = leftAside.querySelector(".new_worker_container ");
+const icon = document.querySelector("#class_mode");
+const worker_in_room = document.querySelectorAll(".worker_room_container");
 
-console.log(workerCard);
-
-modeBtn.addEventListener("click", (e) => {
-  plan.classList.toggle("dark_plan");
-  document.body.classList.toggle("dark");
-     
-  Array.from(workerCard.children).forEach(card=>{
-    console.log(card);
-    card.classList.toggle("dark_card")
-    
-  })
-  
-  
+modeBtn.addEventListener("change", (e) => {
+  if (e.target.checked) {
+    console.log(e.target);
+    plan.classList.add("dark_plan");
+    document.body.classList.add("dark");
+    icon.setAttribute("class", "fas fa-toggle-on");
+  } else {
+    plan.classList.remove("dark_plan");
+    document.body.classList.remove("dark");
+    icon.setAttribute("class", "fas fa-toggle-off");
+  }
 });
+
+// search
+
+const search = document.getElementById("search");
+
+console.log(search);
+
+search.addEventListener("input", function (e) {
+  let worker = workers.filter((worker) => {
+    return worker.fullname.includes(e.target.value);
+  });
+});
+
+// scroll reval
+
+ScrollReveal().reveal(".left", {
+  duration: 2000,
+  origin: "top",
+  distance: "12px",
+  reset: true,
+  delay : 1000,
+  easing: 'ease-in-out',
+  interval :122,
+  opacity : 0,
+});
+
+
+
+ScrollReveal().reveal(".plan", {
+  duration: 2000,
+  origin: "right",
+  distance: "12px",
+  reset: true,
+  delay : 400,
+  scale : .9,
+  easing: 'ease-in-out',
+  rotate : '3deg',
+  interval :122,
+  opacity : 0,
+  rotate: { x: 45, y: 0, },
+
+
+});
+
+
+
+
